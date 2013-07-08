@@ -1,0 +1,27 @@
+<html xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+<head>
+</head>
+<body>
+<div><h1>Information</h1></div>
+<div t:render="summary">
+    <div><t:slot name= "blocks" /></div>
+    <div><t:slot name= "balance" /></div>
+</div>
+<div><h1>Search</h1></div>
+<t:transparent t:render="menu" />
+<div>
+<form id="searchForm" action="../search" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="query" />
+    <input type="submit" value="Search" />
+</form>
+<div id="results"></div>
+</div>
+<div><h1>Reserve</h1></div>
+<form id="reserveForm" action="../reserve" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="domain" />
+    <input type="submit" value="Reserve" />
+</form>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../scripts/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <head>
+        <link rel="stylesheet" href="../styles/main.css" />
+        <link rel="stylesheet" href="../styles/colorbox.css" />
+    </head>
+    <body>
+        <t:transparent t:render="menu" />
+        <div><h1>Available Inventory</h1></div>
+        <table id="results">
+            <tr>
+                <td><b>Name</b></td>
+                <td><b>Blocks</b></td>
+                <td><b>Record</b></td>
+            </tr>
+        </table>
+
+        <div><h1>Pending Inventory</h1></div>
+        <table>
+            <tr>
+                <td><b>Status</b></td>
+                <td><b>Name</b></td>
+                <td><b>Blocks</b></td>
+                <td><b>Record</b></td>
+                <td><b>Rand1</b></td>
+                <td><b>Rand2</b></td>
+                <td><b>Conf</b></td>
+                <td><b>Actions</b></td>
+
+            </tr>
+            <tr t:render="domain">
+                <td><t:slot name="status" /></td>
+                <td><t:slot name="name" /></td>
+                <td><t:slot name="blocks" /></td>
+                <td><t:slot name="record" /></td>
+                <td><t:slot name="rand1" /></td>
+                <td><t:slot name="rand2" /></td>
+                <td><t:slot name="confirmation" /></td>
+                <td>
+                    <a t:render="action">
+                        <t:attr name="href"><t:slot name="url" /></t:attr>
+                        <t:attr name="id"><t:slot name="name" /></t:attr>
+                        <t:slot name="action" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <div style="display:none">
+            <t:transparent t:render="updateDomainPopup" />
+        </div>
+        <div t:render="count">Count: <t:slot name="count" /></div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../scripts/colorbox/jquery.colorbox-min.js"></script>
+        <script type="text/javascript" src="../scripts/inventory.js"></script>
+    </body>
+</html>

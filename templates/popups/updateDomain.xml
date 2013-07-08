@@ -1,0 +1,8 @@
+<div xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1" id="updateDomainPopup">
+    <form id="updateDomainForm" action="../update" method="post" enctype="application/x-www-form-urlencoded">
+        <div id="info"></div>
+        <input type="hidden" name="name" />
+        <input type="text" name="record" />
+        <input type="submit" value="Update" />
+    </form>
+</div>
